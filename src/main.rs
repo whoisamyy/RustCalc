@@ -40,7 +40,10 @@ impl Display for BinaryTree<String> {
 }
 
 fn main() {
-    let expr = parse_expression("1 + 2 * 3 - 6".to_string()).unwrap();
+    let mut expr = String::new();
+    std::io::stdin().read_line(&mut expr).expect("err");
+
+    let expr = parse_expression(expr).unwrap();
 
     print!("{}\n", expr);
     print!("{}", solve(&*expr));
